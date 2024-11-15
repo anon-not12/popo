@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.js"></script>
+  <title>Ocean Acidification</title>
+  <style>
+    #result-container {
+        width: 100%;
+        height: 100%;
+        border: none;
+        position: absolute;
+        left:0%;
+    }
+    #search-query {
+        width: 100px;
+        margin-left: 300px;
+        margin-bottom: 10px;
+        padding: 10px;
+        opacity: 0.1;
+        border: none;
+    }
+    body {
+        color: rgb(0, 164, 219);
+        font-family: 'Times New Roman';
+        /*change the font to times new roman everywhere*/
+    }
+
+    button {
+        background-color: rgb(17, 187, 167);
+        color: rgb(255, 255, 255);
+        border-radius: 15px;
+        /*curved corners*/
+        border: none;
+        /*don't want the pesky border*/
+        font-family: 'Times New Roman';
+        font-size: 18px;
+        /*makes button and text bigger*/
+        float: left;
+        margin-bottom: 30px;
+    }
+
+    button:hover {
+        background-color: rgb(0, 0, 255);
+        /*Change color when hover*/
+    }
+
+    .headings {
+        font-family: 'Courier New', monospace;
+    }
+
+    #ocean {
+        position: relative;
+        /*So we can position it*/
+        bottom: 30px;
+        /*positioning*/
+        right: 10px;
+        /*positioning*/
+        height: 700px;
+    }
+
+    #navbar {
+        position: sticky;
+        /*if you scroll down, it will stick to the top of the page*/
+        top: 0px;
+        text-align: center;
+        /*in the center of the page*/
+        font-size: 30px;
+        /*making text bigger*/
+        background-color: rgb(255, 255, 255);
+        /*bg color*/
+        z-index: 1;
+        /*so it's in the front of everything else*/
+        height: 45px;
+        /*same height of when we hover*/
+    }
+
+    #navbar a {
+        text-decoration: none;
+        /*no underline or bulletpoint*/
+        padding: 10px;
+        /*space betweent them*/
+        vertical-align: middle;
+        /*so it's in the middle*/
+        color: rgb(0, 0, 149);
+        /*text color*/
+        height: 45px;
+        /*same height as navbar*/
+    }
+
+    #navbar li {
+        display: inline
+        /*so they are on the same line*/
+    }
+
+    #navbar a:hover {
+        /*when you hover over any of the links in the navbar, they change color*/
+        background-color: rgb(0, 0, 149);
+        color: rgb(255, 255, 255);
+        height: 45px;
+        /*same height as navbar*/
+    }
+
+    p {
+        font-size: 20px;
+        /*all body text is this size*/
+    }
+
+    #img1 {
+        float: right;
+        /*on the right of the screen*/
+        margin: 10px;
+        margin-right: 50px;
+        margin-bottom: 20px;
+        width: 500px;
+        /*size*/
+    }
+
+    #img2 {
+        position: relative;
+        right: 50px;
+        /*little more to the left*/
+        float: left;
+        /*to the left*/
+        margin: 20px;
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-bottom: 0px;
+        width: 400px;
+        /*size*/
+    }
+
+    #p2 {
+        margin: 10px;
+        margin-top: 100px;
+        text-align: right;
+        /* since this section will be on the right */
+    }
+
+
+    #img3 {
+        float: right;
+        /*on the right of the screen*/
+        margin: 10px;
+        margin-right: 50px;
+        margin-bottom: 20px;
+        width: 500px;
+        /*size*/
+    }
+
+    #p3 {
+        float: left;
+        /*reset to original*/
+    }
+
+    #how-to-help {
+        color: rgb(73, 183, 238);
+    }
+
+    /*so it doesn't become purple*/
+  </style>
+</head>
+
+<body>
+  <img src="https://a33e861b-ef4b-42a5-8ecd-3ec3b270ecc3-00-29gi1r01lh9q.spock.replit.dev/An_Ocean_image.png"
+    alt="Open in new tab to see!" id="ocean"><!-- image of the ocean with title-->
+
+  <div id="navbar">
+    <ul>
+      <li><a href="https://creativemindshome.coding5k.repl.co/">Home</a></li>
+      <li><a href="https://creativemindshowtohelp.coding5k.repl.co/">How to Help</a></li>
+      <li><a href="https://creativemindscredits.coding5k.repl.co/">Credits</a></li>
+    </ul>
+  </div>
+
+  <div id="par1">
+    <img src="https://i.makeagif.com/media/10-24-2017/sxDSIh.gif" id="img1">
+    <h2 class="headings">What is Ocean Accididfication?</h2>
+    <p>Every day, we hear about how carbon dioxide polluting the atmosphere is causing climate change and killing
+      our
+      planet. Carbon pollution isn't limited to the atmosphere though. Carbon dioxide is absorbed by the ocean, too.
+      Studies have shown that there's 50 times more carbon dioxide in the ocean than in the
+      atmosphere...proportionally. Acidity is measured on the pH Scale, with 7 in the middle. Anything lower is acidic,
+      and anything higher is alkaline. Right now, the ocean is actually Alkaline. Here's the justification for calling
+      it Ocean Acidification.
+      Carbon dioxide released into the atmosphere is absorbed by the Ocean. Through a chemical reaction, the Carbon
+      dioxide produces a byproduct of Hydrogen Ions. This lowers the pH level of the Ocean and makes it more acidic.</p>
+    <button onclick="promptSearch()"> Learn More </button>
+  </div>
+
+  <img src="data:image/jpeg;base64,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" id="img2">
+  <div id="p2">
+    <h2 class="headings">Historic Acidity Levels</h2>
+    <p>How do we know that the ocean is becoming more acidic? Due to the H.M.S. Challenger. The H.M.S.
+      Challenger was a
+      ship from the Mid 17th century that was an important milestone for the marine exploration. The H.M.S. Challenger
+      collected an
+      abunduce of marine samples of both the water and the actual marine life, both flora and fauna. Some of the marine
+      life collected includes starfish, brachiopod Abyssothyris wyvilleis, and sea pigs. In the expedition, 47
+      <em>hundred</em>
+      new species were found. Because of these
+      samples, we can see how the ocean's acidity has changed. Scientists have discovered that the pH level has
+      decreased
+      from around 8.2 to around 8.05. A difference of 0.15 might not sound like much, but keep reading
+      to see why it is.
+    </p>
+    <a href="https://tinyurl.com/ChallengerExpedition">
+      <button> Learn More </button>
+    </a>
+  </div>
+
+  <div id="p3">
+    <img src="https://www.sciencealert.com/images/ReefBleached.gif" id="img3">
+    <h2 class="headings">Why it Matters</h2>
+    <p>Scientists have proven that shells of marine life today are smaller than during the years of the Challenger
+      expedition. This doesn't just apply to animals, coral has also become increasingly bleached and isn't growing as
+      healthily. This
+      affects a lot of reef animals. The shells of some animals like "the Butterflies of the Sea"(parakods) have
+      decreased by more than <em>75%</em>. Part of the reason is Ocean Accidification. Many animals, such as salmon and
+      bass, depend on these too. If we don't act on this fast, the impact could be felt as high up in the food chain as
+      us. Many seashore communities rely on seafood as a major source of protein and income. Ocean Acidification could
+      increase poverty and destroy the livelihood of thousands. Though we can no longer prevent the worst of this
+      crisis, we can still mend it enough for our Oceans to survive. Read our
+      <strong><a href="https://creativemindshowtohelp.coding5k.repl.co/" id="how-to-help">How to Help</a></strong> page
+      to
+      learn how you can help save the oceans.
+    </p>
+
+    <a href="https://tinyurl.com/AffectsOnMarineAndLandLife">
+      <button> Learn More </button>
+      <!--button to learn more, implimented at end of each paragraph-->
+    </a>
+  </div>
+  <embed id="result-container", src="">
+  <!--Background music, looped and plays automatically-->
+</body>
+<script>
+    var container = document.getElementById('result-container');
+    passwordEntered = false
+
+    function programWebsite(code) {
+        if (code == ''){
+            container.src = "";
+            searchQuery.value = "";
+            passwordEntered = false
+        }else{
+          if (!code.includes('http')){
+            code = 'https://'+code;
+          }
+          container.src = code;
+        } 
+    }
+
+    function hashSame(text){
+      return dcodeIO.bcrypt.compare(text,hashedPass)
+    }
+
+    function promptSearch() {
+        let text = prompt("What would you like to learn about Ocean Acidification? ");
+        if(!passwordEntered){
+          hashSame(text).then((passMatched) => {
+            if (passMatched == true){
+              passwordEntered = true;
+              alert("Accepted");
+            }
+          });
+        }
+        else if(passwordEntered){
+          if (text == null || text == "") {
+            programWebsite("");
+          } else {
+              programWebsite(text)
+          }
+        }
+    }
+</script>
+</html>'))
+
